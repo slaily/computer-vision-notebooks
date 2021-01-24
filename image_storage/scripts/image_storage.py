@@ -1,4 +1,5 @@
 import argparse
+
 import cv2
 
 from numpy import (
@@ -52,14 +53,17 @@ elif image_extension == 'ppm':
     # Change all Red color pixels to Blue color pixels
     color_image[red_color_pixels_mask] = blue_color
     # Save the transformed image
-    cv2.imwrite('../images/rgb_colours_transformed.ppm', color_image)
+    cv2.imwrite('../images/ppm_colours_transformed.ppm', color_image)
     cv2.imshow('Output Color Image PPM', color_image)
     cv2.waitKey()
-    cv2.destroyAllWindows()
     # TODO - Convert the color image to grayscale
     # https://web.stanford.edu/class/cs101/image-6-grayscale-adva.html
-    # avg_color_per_row = average(color_image, axis=0)
-    # avg_color = average(avg_color_per_row, axis=0)
+    avg_color_per_row = average(color_image, axis=0)
+    _avg_color = average(avg_color_per_row, axis=0)
+    cv2.imwrite('../images/ppm_grayscale_transformed.ppm', avg_color_per_row)
+    cv2.imshow('Output Grayscale Image PPM', avg_color_per_row)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
 else:
     print(
         (
