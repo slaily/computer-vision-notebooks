@@ -33,6 +33,9 @@ diff_b_channel = first_im_b_channel - second_im_b_channel
 diff_g_channel = first_im_g_channel - second_im_g_channel
 # Get the difference of Red channel between the two images
 diff_r_channel = first_im_r_channel - second_im_r_channel
+cv2.imwrite('../images/blue_channel_difference.jpg', diff_b_channel)
+cv2.imwrite('../images/green_channel_difference.jpg', diff_g_channel)
+cv2.imwrite('../images/red_channel_difference.jpg', diff_r_channel)
 cv2.imshow('Blue Channel difference', diff_b_channel)
 cv2.waitKey()
 cv2.imshow('Green Channel difference', diff_g_channel)
